@@ -2,7 +2,7 @@ const {
     getAllCityHandler,
     getCityByIdHandler,
     addCityHandler,
-    updateCityHandler,
+    editCityByIdHandler,
     deleteCityByIdHandler,
     getDestinationByIdHandler,
     addDestinationHandler,
@@ -30,7 +30,7 @@ const routes = [
     {
         method: 'PUT',
         path: '/city/{cityId}',
-        handler: updateCityHandler,
+        handler: editCityByIdHandler,
     },
     {
         method: 'DELETE',

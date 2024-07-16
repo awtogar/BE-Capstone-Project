@@ -1,6 +1,27 @@
 const { nanoid } = require('nanoid');
 const cityData = require('./Data'); // Assuming your data.js is in the same directory
 
+const getCityByIdHandler = async (request, h) => {
+    const { cityId } = request.params;
+
+    const city = cityData.find((city) => city.id.toString() === cityId);
+
+    if (!city) {
+        return h.response({
+            status: 'fail',
+            message: 'Kota tidak ditemukan',
+        }).code(404);
+    }
+
+    return h.response({
+        status: 'success',
+        data: {
+            city,
+        },
+    }).code(200);
+};
+
+
 // Get all city
 const getAllCityHandler = async (request, h) => {
     return h.response({
@@ -49,7 +70,7 @@ const addCityHandler = async (request, h) => {
 };
 
 // Update city
-const editCityHandler = async (request, h) => {
+const editCityByIdHandler = async (request, h) => {
     const { id } = request.params;
     const { name, image, description, destination } = request.payload;
 
@@ -231,8 +252,9 @@ const deleteDestinationHandler = async (request, h) => {
 
 module.exports = {
     getAllCityHandler,
+    getCityByIdHandler,
     addCityHandler,
-    editCityHandler,
+    editCityByIdHandler,
     deleteCityByIdHandler,
     getDestinationByIdHandler,
     addDestinationHandler,
