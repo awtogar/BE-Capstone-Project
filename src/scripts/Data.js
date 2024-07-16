@@ -1,5 +1,4 @@
-let areas = [
-  [
+let city = [
     {
         "id": 1,
         "name": "Bandung",
@@ -251,7 +250,7 @@ let areas = [
     {
         "id": 9,
         "name": "Malang",
-        "image": "dsa",
+        "image": "https://unsplash.com/photos/a-wooden-structure-with-a-clock-on-the-top-of-it-krIssfp8rgw",
         "description": "Kota sejuk dengan banyak destinasi wisata alam.",
         "destination": [
             {
@@ -337,9 +336,8 @@ let areas = [
         ]
     }
     // Lainnya disembunyikan
-]
 ];
 
 
 
-module.exports = areas;
+module.exports = city;

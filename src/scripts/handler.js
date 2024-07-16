@@ -1,111 +1,150 @@
-// src/scripts/handler.js
-
 const { nanoid } = require('nanoid');
-let areas = require('./areas');
+const cityData = require('./Data'); // Assuming your data.js is in the same directory
 
-// Get all cities
-const getAllCitiesHandler = (request, h) => {
-    return h.response(areas).code(200);
-};
-
-// Get city by ID
-const getCityByIdHandler = (request, h) => {
-    const { id } = request.params;
-    const city = areas.find((c) => c.id === parseInt(id, 10));
-
-    if (!city) {
-        return h.response({ message: 'City not found' }).code(404);
-    }
-
-    return h.response(city).code(200);
+// Get all city
+const getAllCityHandler = async (request, h) => {
+    return h.response({
+        status: 'success',
+        data: {
+            cities: cityData,
+        },
+    }).code(200);
 };
 
 // Add new city
-const addCityHandler = (request, h) => {
-    const { name, image, description, destination } = request.payload;
-    const id = nanoid();
+const addCityHandler = async (request, h) => {
+    const {
+        name, image, description, destination
+    } = request.payload;
+
+    if (!name) {
+        return h.response({
+            status: 'fail',
+            message: 'Gagal menambahkan kota. Mohon isi nama kota',
+        }).code(400);
+    }
+
+    if (!destination || destination.length === 0) {
+        return h.response({
+            status: 'fail',
+            message: 'Gagal menambahkan kota. Destination tidak boleh kosong',
+        }).code(400);
+    }
+
+    const id = nanoid(16);
 
     const newCity = {
-        id,
-        name,
-        image,
-        description,
-        destination: destination || [],
+        id, name, image, description, destination
     };
 
-    areas.push(newCity);
+    cityData.push(newCity);
 
-    return h.response(newCity).code(201);
+    return h.response({
+        status: 'success',
+        message: 'Kota berhasil ditambahkan',
+        data: {
+            cityId: id,
+        },
+    }).code(201);
 };
 
 // Update city
-const updateCityHandler = (request, h) => {
+const editCityHandler = async (request, h) => {
     const { id } = request.params;
     const { name, image, description, destination } = request.payload;
 
-    const index = areas.findIndex((c) => c.id === parseInt(id, 10));
+    const index = cityData.findIndex((city) => city.id === id);
 
     if (index === -1) {
-        return h.response({ message: 'City not found' }).code(404);
+        return h.response({
+            status: 'fail',
+            message: 'Gagal memperbarui kota. Id tidak ditemukan',
+        }).code(404);
     }
 
-    areas[index] = {
-        ...areas[index],
+    cityData[index] = {
+        ...cityData[index],
         name,
         image,
         description,
         destination,
     };
 
-    return h.response(areas[index]).code(200);
+    return h.response({
+        status: 'success',
+        message: 'Kota berhasil diperbarui',
+    }).code(200);
 };
 
 // Delete city
-const deleteCityHandler = (request, h) => {
+const deleteCityByIdHandler = async (request, h) => {
     const { id } = request.params;
-    const index = areas.findIndex((c) => c.id === parseInt(id, 10));
+
+    const index = cityData.findIndex((city) => city.id === id);
 
     if (index === -1) {
-        return h.response({ message: 'City not found' }).code(404);
+        return h.response({
+            status: 'fail',
+            message: 'Kota gagal dihapus. Id tidak ditemukan',
+        }).code(404);
     }
 
-    areas = areas.filter((c) => c.id !== parseInt(id, 10));
+    cityData.splice(index, 1);
 
-    return h.response({ message: 'City deleted successfully' }).code(200);
+    return h.response({
+        status: 'success',
+        message: 'Kota berhasil dihapus',
+    }).code(200);
 };
 
 // Get destination by ID
-const getDestinationByIdHandler = (request, h) => {
-    const { cityId, destId } = request.params;
-    const city = areas.find((c) => c.id === parseInt(cityId, 10));
+const getDestinationByIdHandler = async (request, h) => {
+    const { id, destinationId } = request.params;
+
+    const city = cityData.find((city) => city.id === id);
 
     if (!city) {
-        return h.response({ message: 'City not found' }).code(404);
+        return h.response({
+            status: 'fail',
+            message: 'Kota tidak ditemukan',
+        }).code(404);
     }
 
-    const destination = city.destination.find((d) => d.id === parseInt(destId, 10));
+    const destination = city.destination.find((dest) => dest.id === destinationId);
 
     if (!destination) {
-        return h.response({ message: 'Destination not found' }).code(404);
+        return h.response({
+            status: 'fail',
+            message: 'Destinasi tidak ditemukan',
+        }).code(404);
     }
 
-    return h.response(destination).code(200);
+    return h.response({
+        status: 'success',
+        data: {
+            destination,
+        },
+    }).code(200);
 };
 
 // Add new destination
-const addDestinationHandler = (request, h) => {
-    const { cityId } = request.params;
+const addDestinationHandler = async (request, h) => {
+    const { id } = request.params;
     const { name, image, description, address } = request.payload;
-    const id = nanoid();
 
-    const city = areas.find((c) => c.id === parseInt(cityId, 10));
+    const city = cityData.find((city) => city.id === id);
 
     if (!city) {
-        return h.response({ message: 'City not found' }).code(404);
+        return h.response({
+            status: 'fail',
+            message: 'Kota tidak ditemukan',
+        }).code(404);
     }
 
+    const destinationId = nanoid(16);
+
     const newDestination = {
-        id,
+        id: destinationId,
         name,
         image,
         description,
@@ -114,24 +153,36 @@ const addDestinationHandler = (request, h) => {
 
     city.destination.push(newDestination);
 
-    return h.response(newDestination).code(201);
+    return h.response({
+        status: 'success',
+        message: 'Destinasi berhasil ditambahkan',
+        data: {
+            destinationId,
+        },
+    }).code(201);
 };
 
 // Update destination
-const updateDestinationHandler = (request, h) => {
-    const { cityId, destId } = request.params;
+const updateDestinationHandler = async (request, h) => {
+    const { id, destinationId } = request.params;
     const { name, image, description, address } = request.payload;
 
-    const city = areas.find((c) => c.id === parseInt(cityId, 10));
+    const city = cityData.find((city) => city.id === id);
 
     if (!city) {
-        return h.response({ message: 'City not found' }).code(404);
+        return h.response({
+            status: 'fail',
+            message: 'Kota tidak ditemukan',
+        }).code(404);
     }
 
-    const destinationIndex = city.destination.findIndex((d) => d.id === parseInt(destId, 10));
+    const destinationIndex = city.destination.findIndex((dest) => dest.id === destinationId);
 
     if (destinationIndex === -1) {
-        return h.response({ message: 'Destination not found' }).code(404);
+        return h.response({
+            status: 'fail',
+            message: 'Destinasi tidak ditemukan',
+        }).code(404);
     }
 
     city.destination[destinationIndex] = {
@@ -142,30 +193,47 @@ const updateDestinationHandler = (request, h) => {
         address,
     };
 
-    return h.response(city.destination[destinationIndex]).code(200);
+    return h.response({
+        status: 'success',
+        message: 'Destinasi berhasil diperbarui',
+    }).code(200);
 };
 
 // Delete destination
-const deleteDestinationHandler = (request, h) => {
-    const { cityId, destId } = request.params;
+const deleteDestinationHandler = async (request, h) => {
+    const { id, destinationId } = request.params;
 
-    const city = areas.find((c) => c.id === parseInt(cityId, 10));
+    const city = cityData.find((city) => city.id === id);
 
     if (!city) {
-        return h.response({ message: 'City not found' }).code(404);
+        return h.response({
+            status: 'fail',
+            message: 'Kota tidak ditemukan',
+        }).code(404);
     }
 
-    city.destination = city.destination.filter((d) => d.id !== parseInt(destId, 10));
+    const destinationIndex = city.destination.findIndex((dest) => dest.id === destinationId);
 
-    return h.response({ message: 'Destination deleted successfully' }).code(200);
+    if (destinationIndex === -1) {
+        return h.response({
+            status: 'fail',
+            message: 'Destinasi tidak ditemukan',
+        }).code(404);
+    }
+
+    city.destination.splice(destinationIndex, 1);
+
+    return h.response({
+        status: 'success',
+        message: 'Destinasi berhasil dihapus',
+    }).code(200);
 };
 
 module.exports = {
-    getAllCitiesHandler,
-    getCityByIdHandler,
+    getAllCityHandler,
     addCityHandler,
-    updateCityHandler,
-    deleteCityHandler,
+    editCityHandler,
+    deleteCityByIdHandler,
     getDestinationByIdHandler,
     addDestinationHandler,
     updateDestinationHandler,

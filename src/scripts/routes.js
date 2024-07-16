@@ -1,9 +1,9 @@
 const {
-    getAllCitiesHandler,
+    getAllCityHandler,
     getCityByIdHandler,
     addCityHandler,
     updateCityHandler,
-    deleteCityHandler,
+    deleteCityByIdHandler,
     getDestinationByIdHandler,
     addDestinationHandler,
     updateDestinationHandler,
@@ -11,49 +11,52 @@ const {
 } = require('./handler');
 
 const routes = [
-    {
-        method: 'GET',
-        path: '/cities',
-        handler: getAllCitiesHandler,
-    },
-    {
-        method: 'GET',
-        path: '/cities/{id}',
-        handler: getCityByIdHandler,
-    },
+    // Routes for city
     {
         method: 'POST',
-        path: '/cities',
+        path: '/city',
         handler: addCityHandler,
     },
     {
+        method: 'GET',
+        path: '/city',
+        handler: getAllCityHandler,
+    },
+    {
+        method: 'GET',
+        path: '/city/{cityId}',
+        handler: getCityByIdHandler,
+    },
+    {
         method: 'PUT',
-        path: '/cities/{id}',
+        path: '/city/{cityId}',
         handler: updateCityHandler,
     },
     {
         method: 'DELETE',
-        path: '/cities/{id}',
-        handler: deleteCityHandler,
+        path: '/city/{cityId}',
+        handler: deleteCityByIdHandler,
     },
+
+    // Routes for destinations
     {
         method: 'GET',
-        path: '/cities/{cityId}/destinations/{destId}',
+        path: '/city/{cityId}/destinations/{destinationId}',
         handler: getDestinationByIdHandler,
     },
     {
         method: 'POST',
-        path: '/cities/{cityId}/destinations',
+        path: '/city/{cityId}/destinations',
         handler: addDestinationHandler,
     },
     {
         method: 'PUT',
-        path: '/cities/{cityId}/destinations/{destId}',
+        path: '/city/{cityId}/destinations/{destinationId}',
         handler: updateDestinationHandler,
     },
     {
         method: 'DELETE',
-        path: '/cities/{cityId}/destinations/{destId}',
+        path: '/city/{cityId}/destinations/{destinationId}',
         handler: deleteDestinationHandler,
     },
 ];
