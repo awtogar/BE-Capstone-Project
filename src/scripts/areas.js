@@ -1,4 +1,4 @@
-const areas = [
+let areas = [
   [
     {
         "id": 1,
@@ -100,6 +100,7 @@ const areas = [
             }
         ]
     },
+    // Lainnya disembunyikan
     {
         "id": 3,
         "name": "Jakarta",
@@ -122,6 +123,7 @@ const areas = [
             }
         ]
     },
+    
     {
         "id": 4,
         "name": "Surabaya",
@@ -334,6 +336,7 @@ const areas = [
             }
         ]
     }
+    // Lainnya disembunyikan
 ]
 ];
 
