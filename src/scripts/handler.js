@@ -21,7 +21,6 @@ const getCityByIdHandler = async (request, h) => {
     }).code(200);
 };
 
-
 // Get all city
 const getAllCityHandler = async (request, h) => {
     return h.response({
@@ -71,10 +70,10 @@ const addCityHandler = async (request, h) => {
 
 // Update city
 const editCityByIdHandler = async (request, h) => {
-    const { id } = request.params;
+    const { cityId } = request.params;
     const { name, image, description, destination } = request.payload;
 
-    const index = cityData.findIndex((city) => city.id === id);
+    const index = cityData.findIndex((city) => city.id.toString() === cityId);
 
     if (index === -1) {
         return h.response({
@@ -99,9 +98,9 @@ const editCityByIdHandler = async (request, h) => {
 
 // Delete city
 const deleteCityByIdHandler = async (request, h) => {
-    const { id } = request.params;
+    const { cityId } = request.params;
 
-    const index = cityData.findIndex((city) => city.id === id);
+    const index = cityData.findIndex((city) => city.id.toString() === cityId);
 
     if (index === -1) {
         return h.response({
@@ -120,9 +119,9 @@ const deleteCityByIdHandler = async (request, h) => {
 
 // Get destination by ID
 const getDestinationByIdHandler = async (request, h) => {
-    const { id, destinationId } = request.params;
+    const { cityId, destinationId } = request.params;
 
-    const city = cityData.find((city) => city.id === id);
+    const city = cityData.find((city) => city.id.toString() === cityId);
 
     if (!city) {
         return h.response({
@@ -131,7 +130,7 @@ const getDestinationByIdHandler = async (request, h) => {
         }).code(404);
     }
 
-    const destination = city.destination.find((dest) => dest.id === destinationId);
+    const destination = city.destination.find((dest) => dest.id.toString() === destinationId);
 
     if (!destination) {
         return h.response({
@@ -150,10 +149,10 @@ const getDestinationByIdHandler = async (request, h) => {
 
 // Add new destination
 const addDestinationHandler = async (request, h) => {
-    const { id } = request.params;
+    const { cityId } = request.params;
     const { name, image, description, address } = request.payload;
 
-    const city = cityData.find((city) => city.id === id);
+    const city = cityData.find((city) => city.id.toString() === cityId);
 
     if (!city) {
         return h.response({
@@ -185,10 +184,10 @@ const addDestinationHandler = async (request, h) => {
 
 // Update destination
 const updateDestinationHandler = async (request, h) => {
-    const { id, destinationId } = request.params;
+    const { cityId, destinationId } = request.params;
     const { name, image, description, address } = request.payload;
 
-    const city = cityData.find((city) => city.id === id);
+    const city = cityData.find((city) => city.id.toString() === cityId);
 
     if (!city) {
         return h.response({
@@ -197,7 +196,7 @@ const updateDestinationHandler = async (request, h) => {
         }).code(404);
     }
 
-    const destinationIndex = city.destination.findIndex((dest) => dest.id === destinationId);
+    const destinationIndex = city.destination.findIndex((dest) => dest.id.toString() === destinationId);
 
     if (destinationIndex === -1) {
         return h.response({
@@ -222,9 +221,9 @@ const updateDestinationHandler = async (request, h) => {
 
 // Delete destination
 const deleteDestinationHandler = async (request, h) => {
-    const { id, destinationId } = request.params;
+    const { cityId, destinationId } = request.params;
 
-    const city = cityData.find((city) => city.id === id);
+    const city = cityData.find((city) => city.id.toString() === cityId);
 
     if (!city) {
         return h.response({
@@ -233,7 +232,7 @@ const deleteDestinationHandler = async (request, h) => {
         }).code(404);
     }
 
-    const destinationIndex = city.destination.findIndex((dest) => dest.id === destinationId);
+    const destinationIndex = city.destination.findIndex((dest) => dest.id.toString() === destinationId);
 
     if (destinationIndex === -1) {
         return h.response({
@@ -249,8 +248,28 @@ const deleteDestinationHandler = async (request, h) => {
         message: 'Destinasi berhasil dihapus',
     }).code(200);
 };
+const getAllDestinationsHandler = async (request, h) => {
+    const { cityId } = request.params;
+
+    const city = cityData.find((city) => city.id.toString() === cityId);
+
+    if (!city) {
+        return h.response({
+            status: 'fail',
+            message: 'Kota tidak ditemukan',
+        }).code(404);
+    }
+
+    return h.response({
+        status: 'success',
+        data: {
+            destinations: city.destination,
+        },
+    }).code(200);
+};
 
 module.exports = {
+    getAllDestinationsHandler,
     getAllCityHandler,
     getCityByIdHandler,
     addCityHandler,

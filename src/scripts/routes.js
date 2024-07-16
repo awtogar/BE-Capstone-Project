@@ -1,4 +1,5 @@
 const {
+    getAllDestinationsHandler,
     getAllCityHandler,
     getCityByIdHandler,
     addCityHandler,
@@ -41,22 +42,27 @@ const routes = [
     // Routes for destinations
     {
         method: 'GET',
-        path: '/city/{cityId}/destinations/{destinationId}',
+        path: '/city/{cityId}/destination/{destinationId}',
         handler: getDestinationByIdHandler,
     },
     {
+        method: 'GET',
+        path: '/city/{cityId}/destination',
+        handler: getAllDestinationsHandler, 
+    },
+    {
         method: 'POST',
-        path: '/city/{cityId}/destinations',
+        path: '/city/{cityId}/destination',
         handler: addDestinationHandler,
     },
     {
         method: 'PUT',
-        path: '/city/{cityId}/destinations/{destinationId}',
+        path: '/city/{cityId}/destination/{destinationId}',
         handler: updateDestinationHandler,
     },
     {
         method: 'DELETE',
-        path: '/city/{cityId}/destinations/{destinationId}',
+        path: '/city/{cityId}/destination/{destinationId}',
         handler: deleteDestinationHandler,
     },
 ];
