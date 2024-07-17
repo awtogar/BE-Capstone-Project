@@ -3,8 +3,9 @@ const routes = require('./routes');
 
 const init = async () => {
     const server = Hapi.server({
-        port: 3000,
-        host: 'localhost',
+        //port from environment vercel nanti
+        port: process.env.PORT || 3000, 
+        host: '0.0.0.0',
         routes: {
             cors: {
                 origin: ['*'],
