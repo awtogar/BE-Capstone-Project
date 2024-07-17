@@ -15,7 +15,7 @@ const {
 const routes = [
     // Routes for city
     {
-        method: 'POST',
+        method: 'GET',
         path: '/',
         handler: baseURLHandler,
     },
