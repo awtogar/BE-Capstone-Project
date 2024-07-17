@@ -1,6 +1,13 @@
 const { nanoid } = require('nanoid');
 const cityData = require('./Data'); // Assuming your data.js is in the same directory
 
+const baseURLHandler = async (request, h) => {
+    return h.response({
+        status: 'success',
+        message: 'API berhasil dipanggil',
+    }).code(200);
+};
+
 const getCityByIdHandler = async (request, h) => {
     const { cityId } = request.params;
 
@@ -269,6 +276,7 @@ const getAllDestinationsHandler = async (request, h) => {
 };
 
 module.exports = {
+    baseURLHandler,
     getAllDestinationsHandler,
     getAllCityHandler,
     getCityByIdHandler,

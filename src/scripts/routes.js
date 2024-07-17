@@ -1,4 +1,5 @@
 const {
+    baseURLHandler,
     getAllDestinationsHandler,
     getAllCityHandler,
     getCityByIdHandler,
@@ -13,6 +14,11 @@ const {
 
 const routes = [
     // Routes for city
+    {
+        method: 'POST',
+        path: '/',
+        handler: baseURLHandler,
+    },
     {
         method: 'POST',
         path: '/city',
