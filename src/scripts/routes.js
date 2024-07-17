@@ -13,7 +13,6 @@ const {
 } = require('./handler');
 
 const routes = [
-    // Routes for city
     {
         method: 'GET',
         path: '/',

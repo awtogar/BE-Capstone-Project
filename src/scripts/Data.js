@@ -99,7 +99,6 @@ let city = [
             }
         ]
     },
-    // Lainnya disembunyikan
     {
         "id": "qpsidi3cbmprl2d8",
         "name": "Jakarta",
@@ -335,7 +334,6 @@ let city = [
             }
         ]
     }
-    // Lainnya disembunyikan
 ];
 
 

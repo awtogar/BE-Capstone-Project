@@ -28,7 +28,7 @@ const getCityByIdHandler = async (request, h) => {
     }).code(200);
 };
 
-// Get all city
+
 const getAllCityHandler = async (request, h) => {
     return h.response({
         status: 'success',
@@ -38,7 +38,6 @@ const getAllCityHandler = async (request, h) => {
     }).code(200);
 };
 
-// Add new city
 const addCityHandler = async (request, h) => {
     const {
         name, image, description, destination
@@ -75,7 +74,6 @@ const addCityHandler = async (request, h) => {
     }).code(201);
 };
 
-// Update city
 const editCityByIdHandler = async (request, h) => {
     const { cityId } = request.params;
     const { name, image, description, destination } = request.payload;
@@ -103,7 +101,6 @@ const editCityByIdHandler = async (request, h) => {
     }).code(200);
 };
 
-// Delete city
 const deleteCityByIdHandler = async (request, h) => {
     const { cityId } = request.params;
 
@@ -124,7 +121,6 @@ const deleteCityByIdHandler = async (request, h) => {
     }).code(200);
 };
 
-// Get destination by ID
 const getDestinationByIdHandler = async (request, h) => {
     const { cityId, destinationId } = request.params;
 
@@ -189,7 +185,7 @@ const addDestinationHandler = async (request, h) => {
     }).code(201);
 };
 
-// Update destination
+
 const updateDestinationHandler = async (request, h) => {
     const { cityId, destinationId } = request.params;
     const { name, image, description, address } = request.payload;
@@ -226,7 +222,6 @@ const updateDestinationHandler = async (request, h) => {
     }).code(200);
 };
 
-// Delete destination
 const deleteDestinationHandler = async (request, h) => {
     const { cityId, destinationId } = request.params;
 
