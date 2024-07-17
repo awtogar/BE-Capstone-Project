@@ -1,5 +1,5 @@
 const { nanoid } = require('nanoid');
-const cityData = require('./Data'); // Assuming your data.js is in the same directory
+const cityData = require('./Data');
 
 const baseURLHandler = async (request, h) => {
     return h.response({
