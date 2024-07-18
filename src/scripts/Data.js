@@ -2,7 +2,7 @@ let city = [
     {
         "id": "u49ahxtef26jpi40",
         "name": "Bandung",
-        "image": "https://drive.google.com/file/d/1-w5etMPixTLrmFlgvT_G3WDaaU8qSYLh/view?usp=drive_link",
+        "image": "https://imgur.com/gallery/secluded-tropic-paradise-accessible-only-by-sea-togian-islands-sulawesi-indonesia-3062-x-2122-oc-DolB6H4",
         "description": "Kota kembang yang terkenal dengan keindahan alam dan kulinernya.",
         "destination": [
             {
