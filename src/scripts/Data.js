@@ -15,14 +15,14 @@ let city = [
             {
                 "id": "6tv9tw63r1ii17gz",
                 "name": "Kawah Putih",
-                "image": "https://pixabay.com/photos/ijen-indonesia-kawah-mine-volcano-4297397/",
+                "image": "https://pixabay.com/photos/ijen-indonesia-kawah-mine-volcano-4297397",
                 "description": "Danau kawah dengan air berwarna putih kehijauan.",
                 "address": "Ciwidey, Bandung, Jawa Barat"
             },
             {
                 "id": "zy1hmrclkwy0ucmh",
                 "name": "Trans Studio Bandung",
-                "image": "https://pixabay.com/photos/man-microphone-music-musician-1845432/",
+                "image": "https://pixabay.com/photos/man-microphone-music-musician-1845432",
                 "description": "Taman bermain indoor terbesar di Indonesia.",
                 "address": "Jl. Gatot Subroto No. 289, Bandung, Jawa Barat"
             }
@@ -37,14 +37,14 @@ let city = [
             {
                 "id": "nmqfbg1a9knpj0b6",
                 "name": "Candi Borobudur",
-                "image": "https://pixabay.com/photos/borobudur-temple-asia-indonesia-2145419/",
+                "image": "https://pixabay.com/photos/borobudur-temple-asia-indonesia-2145419",
                 "description": "Candi Buddha terbesar di dunia dan situs warisan dunia UNESCO.",
                 "address": "Magelang, Jawa Tengah"
             },
             {
                 "id": "7hwx3a7r2ft62vhn",
                 "name": "Candi Prambanan",
-                "image": "https://pixabay.com/photos/indonesia-prambanan-hinduism-4516115/",
+                "image": "https://pixabay.com/photos/indonesia-prambanan-hinduism-4516115",
                 "description": "Kompleks candi Hindu terbesar di Indonesia.",
                 "address": "Jl. Raya Solo - Yogyakarta No.16, Prambanan, Sleman, Yogyakarta"
             },
@@ -111,7 +111,7 @@ let city = [
     {
         "id": "liapiclsgg7yhw5f",
         "name": "Surabaya",
-        "image": "https://pixabay.com/photos/statue-monument-crocodile-shark-7173371/",
+        "image": "https://pixabay.com/photos/statue-monument-crocodile-shark-7173371",
         "description": "Kota pahlawan dengan sejarah perjuangan yang kental.",
         "destination": [
             {
@@ -124,14 +124,14 @@ let city = [
             {
                 "id": "78noubyitfkx3vhe",
                 "name": "House of Sampoerna",
-                "image": "https://pixabay.com/photos/gedung-tua-jembatan-merah-surabaya-210680/",
+                "image": "https://pixabay.com/photos/gedung-tua-jembatan-merah-surabaya-210680",
                 "description": "Museum yang menampilkan sejarah rokok kretek di Indonesia.",
                 "address": "Jl. Taman Sampoerna No.6, Surabaya"
             },
             {
                 "id": "rct5e54zcaqfmqnv",
                 "name": "Ciputra Waterpark",
-                "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizBJsmqyzx1MrzwB6Gav6qubOvglTgXUyOYibJDJwd-zXA7KZaQk-v4ottmfbuxhSexcbV2Vxiz3U80eo-pgnymR67vqq8HvvnoBxvZUhg5jL5dWCqOQ7582rUZf0HHvsmzWTb2YSxaGE/s1600/waterpark+citraland+surabaya+%252858%2529.JPG",
+                "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizBJsmqyzx1MrzwB6Gav6qubOvglTgXUyOYibJDJwd-zXA7KZaQk-v4ottmfbuxhSexcbV2Vxiz3U80eo-pgnymR67vqq8HvvnoBxvZUhg5jL5dWCqOQ7582rUZf0HHvsmzWTb2YSxaGE",
                 "description": "Taman bermain air terbesar di Surabaya.",
                 "address": "Jl. Citraland Surabaya"
             }
