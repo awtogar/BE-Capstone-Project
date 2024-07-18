@@ -2,13 +2,13 @@ let city = [
     {
         "id": "u49ahxtef26jpi40",
         "name": "Bandung",
-        "image": "https://images.unsplash.com/photo-1599496507927-9056debd0f0a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "image": "https://images.unsplash.com/photo-1683471619890-fb7e51c3201c?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "description": "Kota kembang yang terkenal dengan keindahan alam dan kulinernya.",
         "destination": [
             {
                 "id": "dzfsas0v8wc18cai",
                 "name": "Tangkuban Perahu",
-                "image": "https://drive.google.com/file/d/1UweXLCMkPfpZ8g0GU8as9dW0cTJkTeG_/view?usp=drive_link",
+                "image": "https://www.noorhotels.com/wp-content/uploads/2016/05/tangkuban.jpg",
                 "description": "Gunung berapi aktif yang menawarkan pemandangan yang spektakuler.",
                 "address": "Lembang, Bandung, Jawa Barat"
             },
