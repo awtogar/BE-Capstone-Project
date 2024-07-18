@@ -8,7 +8,7 @@ let city = [
             {
                 "id": "dzfsas0v8wc18cai",
                 "name": "Tangkuban Perahu",
-                "image": "https://pixabay.com/photos/mountain-tangkuban-parahu-bandung-3734554/",
+                "image": "https://drive.google.com/file/d/1UweXLCMkPfpZ8g0GU8as9dW0cTJkTeG_/view?usp=drive_link",
                 "description": "Gunung berapi aktif yang menawarkan pemandangan yang spektakuler.",
                 "address": "Lembang, Bandung, Jawa Barat"
             },
@@ -25,20 +25,6 @@ let city = [
                 "image": "https://pixabay.com/photos/man-microphone-music-musician-1845432/",
                 "description": "Taman bermain indoor terbesar di Indonesia.",
                 "address": "Jl. Gatot Subroto No. 289, Bandung, Jawa Barat"
-            },
-            {
-                "id": "is7z5mi24q48e6sy",
-                "name": "Dago Dreampark",
-                "image": "https://pixabay.com/photos/maribaya-bandung-jawa-2509392/",
-                "description": "Taman hiburan dengan berbagai atraksi menarik.",
-                "address": "Jl. Dago Giri Km. 2.2, Bandung, Jawa Barat"
-            },
-            {
-                "id": "bndgygokxvaq71y6",
-                "name": "Farm House Lembang",
-                "image": "https://pixabay.com/photos/cukul-tea-plantation-pengalengan-7911922/",
-                "description": "Tempat wisata bertema Eropa yang populer.",
-                "address": "Jl. Raya Lembang No. 108, Lembang, Bandung, Jawa Barat"
             }
         ]
     },
